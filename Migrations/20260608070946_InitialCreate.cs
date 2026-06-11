@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -205,7 +205,7 @@ namespace MyHiep.Api.Migrations
             migrationBuilder.InsertData(
                 table: "StoreSettings",
                 columns: new[] { "Id", "Address", "BrandName", "DeliveryPolicy", "FacebookUrl", "Hotline", "OpeningHours", "ZaloUrl" },
-                values: new object[] { 1, "Địa chỉ cửa hàng đang cập nhật", "Giặt Sấy Hiệp Hưng", "Hỗ trợ giao nhận trong bán kính 3km", "https://facebook.com/", "0900 000 000", "7:00 - 21:00 hằng ngày", "https://zalo.me/0900000000" });
+                values: new object[] { 1, "Địa chỉ cửa hàng đang cập nhật", "Giặt Sấy Hiệp", "Hỗ trợ giao nhận trong bán kính 3km", "https://facebook.com/", "0900 000 000", "7:00 - 21:00 hằng ngày", "https://zalo.me/0900000000" });
 
             migrationBuilder.InsertData(
                 table: "Users",
