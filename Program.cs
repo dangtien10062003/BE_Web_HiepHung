@@ -2,10 +2,13 @@ using Microsoft.EntityFrameworkCore;
 using MyHiep.Api.Data;
 using MyHiep.Api.Repositories;
 using MyHiep.Api.Services;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://localhost:5080");
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -32,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 app.UseCors("Frontend");
+app.MapGet("/ping", () => Results.Ok(new { status = "ok" }));
 app.MapControllers();
 app.Run();
