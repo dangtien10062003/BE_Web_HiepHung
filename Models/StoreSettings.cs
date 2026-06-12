@@ -5,7 +5,7 @@ namespace MyHiep.Api.Models;
 public class StoreSettings
 {
     public int Id { get; set; }
-    [MaxLength(160)] public string BrandName { get; set; } = "Giặt Sấy Hiệp Hưng";
+    [MaxLength(160)] public string BrandName { get; set; } = "Giặt Sấy Hiệp";
     [MaxLength(300)] public string Address { get; set; } = "Địa chỉ cửa hàng đang cập nhật";
     [MaxLength(30)] public string Hotline { get; set; } = "0900 000 000";
     [MaxLength(200)] public string ZaloUrl { get; set; } = "https://zalo.me/0900000000";

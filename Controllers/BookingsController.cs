@@ -17,7 +17,16 @@ public class BookingsController(IBookingService bookingService) : ControllerBase
     }
 
     [HttpGet("admin/bookings")]
-    public Task<List<BookingResponse>> List([FromQuery] BookingStatus? status) => bookingService.ListAsync(status);
+    public Task<PagedResponse<BookingResponse>> List(
+        [FromQuery] BookingStatus? status,
+        [FromQuery] string? search,
+        [FromQuery] string? service,
+        [FromQuery] DateTime? pickupDate,
+        [FromQuery] string? orderDateMode,
+        [FromQuery] string? orderDateValue,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10) =>
+        bookingService.ListAsync(status, search, service, pickupDate, orderDateMode, orderDateValue, page, pageSize);
 
     [HttpGet("admin/bookings/{id:int}")]
     public async Task<ActionResult<BookingResponse>> Get(int id)
